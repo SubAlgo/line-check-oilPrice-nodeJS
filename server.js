@@ -13,13 +13,13 @@ let hello = (req, res, next)=> {
     res.end('Hello World');
 }
 
-app.get('*', (req, res) => {
-  res.json({
-    message: 'Error'
-  })
-})
+//app.get('*', (req, res) => {
+//  res.json({
+//    message: 'Error'
+//  })
+//})
 
-app.get('/hello', hello);
+app.use('/hello', hello);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on ${PORT}`)
