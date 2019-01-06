@@ -18,6 +18,13 @@ app.post('/webhook', line.middleware(config), (req, res) => {
         .then((result) => res.json(result));
 });
 
+app.use('/hello', hello);
+
+let hello = (req, res, next)=> {
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World');
+}
+
 function handleEvent(event) {
 
     console.log(event);
