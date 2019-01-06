@@ -15,6 +15,14 @@ app.get('*', (req, res) => {
   })
 })
 
+app.use('/hello', hello);
+
 app.listen(PORT, () => {
   console.log(`Server is listening on ${PORT}`)
 })
+
+
+let hello = (req, res, next)=> {
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World');
+}
