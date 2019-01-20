@@ -45,7 +45,7 @@ function handleEvent(event) {
 function handleMessageEvent(event) {
     var msg = {
         type: 'text',
-        text: 'Hello , This Subalgo BOT'
+        text: 'Hi ' + event.message.text
     };
 
     return client.replyMessage(event.replyToken, msg);
