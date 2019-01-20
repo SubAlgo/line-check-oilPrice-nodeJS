@@ -21,6 +21,8 @@
   "dependencies": {
     "@line/bot-sdk": "^6.4.0",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4"
+    "easy-soap-request": "^2.3.6",
+    "express": "^4.16.4",
+    "soap": "^0.25.0"
   }
 }
