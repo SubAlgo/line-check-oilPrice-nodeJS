@@ -38,7 +38,7 @@ function handleMessageEvent(event) {
 
 let handleText = (text) => {
     let ms;
-    if(text = 'oil-now') {
+    if(text == 'oil-now') {
         ms = 'เดี๋ยวเช็คราคาน้ำมันให้นะ'
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
