@@ -20,9 +20,12 @@
   "license": "ISC",
   "dependencies": {
     "@line/bot-sdk": "^6.4.0",
+    "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.2.0",
     "easy-soap-request": "^2.3.6",
     "express": "^4.16.4",
-    "soap": "^0.25.0"
+    "request": "^2.88.0",
+    "soap": "^0.25.0",
+    "xml2js": "^0.4.19"
   }
 }

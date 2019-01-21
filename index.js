@@ -36,10 +36,46 @@ function handleMessageEvent(event) {
     return client.replyMessage(event.replyToken, msg);
 }
 
+let checkoilPrice = () => {
+    soap.createClient(url, function(err, client) {
+        
+        
+        client.GetOilPrice(args, function(err, result) {
+            let MyStr = JSON.stringify(result)
+            let resultStr = ''
+            const $ = cheerio.load(MyStr);
+            $('DataAccess').each((i, el) => {
+                
+            
+                //check member in children element
+                const nChildren = $(el).children().length;
+                const children = $(el).children();
+                if(nChildren == 3) {
+                    if(resultStr.trim() == '') {
+                        resultStr = $(children[1]).text()+ "\n--> " + $(children[2]).text()
+                    } else {
+                        resultStr = resultStr + "\n" + $(children[1]).text()+ "\n--> " + $(children[2]).text()
+                    }
+                    resultStr = resultStr + "\n**********"
+                    
+
+                    console.log($(children[1]).text()+ " - " + $(children[2]).text())
+                    console.log('*********')
+                    //console.log($(children[2]).text())
+                    //const item = $(el).text()
+                    
+                }
+            })
+            return resultStr
+           
+        });
+    });
+}
+
 let handleText = (text) => {
     let ms;
     if(text == 'oil-now') {
-        ms = 'เดี๋ยวเช็คราคาน้ำมันให้นะ'
+        ms = checkoilPrice()
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
     } else {
