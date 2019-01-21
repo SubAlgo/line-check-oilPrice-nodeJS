@@ -1,5 +1,10 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
+const soap = require('soap');
+const cheerio = require('cheerio')
+
+
+const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
 
 require('dotenv').config();
 
@@ -74,7 +79,7 @@ let checkoilPrice = () => {
 
 let handleText = (text) => {
     let ms;
-    if(text == 'oil-now') {
+    if(text == 'oil') {
         ms = checkoilPrice()
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
