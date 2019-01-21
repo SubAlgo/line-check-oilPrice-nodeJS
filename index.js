@@ -79,7 +79,7 @@ let checkoilPrice = () => {
 
 let handleText = (text) => {
     let ms;
-    if(text == 'oil') {
+    if(text.toLowerCase() == 'oil') {
         ms = checkoilPrice()
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
