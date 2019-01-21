@@ -42,8 +42,8 @@ function handleMessageEvent(event) {
 }
 
 let checkoilPrice = () => {
-    return ("oil-*-")
-    /*
+    
+    
     let args = {    
         'Language' : 'EN',
         'DD' : 30,
@@ -70,20 +70,14 @@ let checkoilPrice = () => {
                         resultStr = resultStr + "\n" + $(children[1]).text()+ "\n--> " + $(children[2]).text()
                     }
                     resultStr = resultStr + "\n**********"
-                    
 
                     console.log($(children[1]).text()+ " - " + $(children[2]).text())
                     console.log('*********')
-                    //console.log($(children[2]).text())
-                    //const item = $(el).text()
-                    
                 }
             })
-            return resultStr
-           
         });
     });
-    */
+    return resultStr
 }
 
 let handleText = (text) => {
