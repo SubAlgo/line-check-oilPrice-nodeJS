@@ -53,7 +53,7 @@ let checkoilPrice = () => {
     soap.createClient(url, function(err, client) {
         let resultStr = 'test'
         
-        client.GetOilPrice(args, function(err, result) {
+        //client.GetOilPrice(args, function(err, result) {
             return resultStr
             //let MyStr = JSON.stringify(result)
             //let resultStr = ''
@@ -76,7 +76,7 @@ let checkoilPrice = () => {
             //        console.log('*********')
             //    }
             //})
-        });
+        //});
     });
     
 }
@@ -88,7 +88,7 @@ let addPrefix = (text) => {
 
 let handleText = (text) => {
     let ms;
-    if(text == 'oil') {
+    if(text.toLowerCase() == 'oil') {
         ms = checkoilPrice()
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
