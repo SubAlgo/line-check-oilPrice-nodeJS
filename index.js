@@ -80,6 +80,11 @@ let checkoilPrice = () => {
     return resultStr
 }
 
+let addPrefix = (text) => {
+    let re = "Hi, " + text;
+    return re;
+}
+
 let handleText = (text) => {
     let ms;
     if(text.toLowerCase() == 'oil') {
@@ -87,7 +92,7 @@ let handleText = (text) => {
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
     } else {
-        ms = 'Hi, ' + text
+        ms = addPrefix(text)
     }
 
     return ms;
