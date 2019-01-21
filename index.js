@@ -81,7 +81,7 @@ let checkoilPrice = () => {
 }
 
 let addPrefix = (text) => {
-    let re = "Hi, " + text;
+    let re = "Hi, " + text + " ^^";
     return re;
 }
 
