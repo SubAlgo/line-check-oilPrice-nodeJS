@@ -50,7 +50,7 @@ let checkoilPrice = () => {
         'MM' : 12,
         'YYYY' : 2018
     }
-    soap.createClient(url, function(err, client) {
+    //soap.createClient(url, function(err, client) {
         let resultStr = 'test'
         
         //client.GetOilPrice(args, function(err, result) {
@@ -77,7 +77,7 @@ let checkoilPrice = () => {
             //    }
             //})
         //});
-    });
+    //});
     
 }
 
