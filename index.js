@@ -42,42 +42,19 @@ function handleMessageEvent(event) {
 }
 
 let checkoilPrice = () => {
-    
-    
+
     let args = {    
         'Language' : 'EN',
         'DD' : 30,
         'MM' : 12,
         'YYYY' : 2018
     }
-    //soap.createClient(url, function(err, client) {
+    soap.createClient(url, function(err, client) {
         let resultStr = 'test'
         
-        //client.GetOilPrice(args, function(err, result) {
-            return resultStr
-            //let MyStr = JSON.stringify(result)
-            //let resultStr = ''
-            //const $ = cheerio.load(MyStr);
-            //$('DataAccess').each((i, el) => {
-            //    
-            //
-            //    //check member in children element
-            //    const nChildren = $(el).children().length;
-            //    const children = $(el).children();
-            //    if(nChildren == 3) {
-            //        if(resultStr.trim() == '') {
-            //            resultStr = $(children[1]).text()+ "\n--> " + $(children[2]).text()
-            //        } else {
-            //            resultStr = resultStr + "\n" + $(children[1]).text()+ "\n--> " + $(children[2]).text()
-            //        }
-            //        resultStr = resultStr + "\n**********"
-            //
-            //        console.log($(children[1]).text()+ " - " + $(children[2]).text())
-            //        console.log('*********')
-            //    }
-            //})
-        //});
-    //});
+        
+        return resultStr
+    });
     
 }
 
