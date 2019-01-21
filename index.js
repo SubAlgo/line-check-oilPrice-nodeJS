@@ -42,6 +42,8 @@ function handleMessageEvent(event) {
 }
 
 let checkoilPrice = () => {
+    return ("oil-*-")
+    /*
     let args = {    
         'Language' : 'EN',
         'DD' : 30,
@@ -81,6 +83,7 @@ let checkoilPrice = () => {
            
         });
     });
+    */
 }
 
 let handleText = (text) => {
