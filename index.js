@@ -88,7 +88,7 @@ let addPrefix = (text) => {
 
 let handleText = (text) => {
     let ms;
-    if(text.toLowerCase() == 'oil') {
+    if(text == 'oil') {
         ms = checkoilPrice()
     } else if (text == 'macbook') {
         ms = 'อยากได้อยู่ T_T'
