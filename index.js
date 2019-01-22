@@ -47,7 +47,7 @@ function handleMessageEvent(event) {
 let handleText = (text) => {
     let textResult;
     if(text.toLowerCase() == 'oil') {
-        textResult = checkoilPrice()
+        textResult = check_oil_price()
     } else if (text.toLowerCase() == 'macbook') {
         textResult = 'อยากได้อยู่ T_T'
     } else {
@@ -69,12 +69,13 @@ app.listen(app.get('port'), function () {
  */
 let checkoilPrice = () => {
 
-    let args = {    
-        'Language' : 'EN',
-        'DD' : 30,
-        'MM' : 12,
-        'YYYY' : 2018
-    }
+    //function in function
+    //et args = {    
+    //   'Language' : 'EN',
+    //   'DD' : 30,
+    //   'MM' : 12,
+    //   'YYYY' : 2018
+    //
     const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     
     //soap.createClient(url, function(err, clients) {
@@ -108,6 +109,36 @@ let checkoilPrice = () => {
         return resultStr
     //});
     
+}
+
+let check_oil_price = () => {
+    const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
+    let args = {    
+        'Language' : 'EN',
+        'DD' : 30,
+        'MM' : 12,
+        'YYYY' : 2018
+    }
+    
+    let strReturn = '';
+
+    soap.createClient(url, (err, cli) => {        
+        cli.GetOilPrice(arg, (err, result) => {
+            
+            // Error case
+            if(err != null) {
+                strReturn = "Can't connect API";
+                return strReturn;
+            }
+
+            let MyStr = JSON.stringify(result);
+            const $ = cheerio.load(MyStr);
+
+            return strReturn = "Price is ...";
+
+        })
+    })
+    return 
 }
 
 let addPrefix = (text) => {
