@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const app = express();
 
+//config Token and Channel
 const config = {
     channelAccessToken: 'gSUsaZB4IUt6h1TBQeZh8FPmR+/C3OVNcRNbC1JsVDj2OC6r7xUBqp6E9iG1HHtwWENJVsA80TJMt+/EPScTaosUOYFKCwCkxw1xb8BWdq4tYTb7MZHos+d1b/aBjDPeZLjKRb1O3jKMvFKekofjvgdB04t89/1O/w1cDnyilFU=',
     channelSecret: '154e9bed54c5d0d70335e563d2089062'
@@ -22,6 +23,7 @@ app.post('/webhook', line.middleware(config), (req, res) => {
         .all(req.body.events.map(handleEvent))
         .then((result) => res.json(result));
 });
+
 
 function handleEvent(event) {
     console.log(event);
@@ -49,12 +51,36 @@ let checkoilPrice = () => {
         'MM' : 12,
         'YYYY' : 2018
     }
-    soap.createClient(url, function(err, client) {
-        let resultStr = 'test'
-        
-        
-        return resultStr
-    });
+    return args
+    //soap.createClient(url, function(err, client) {
+    //    let resultStr = 'test'
+    //    
+    //    client.GetOilPrice(args, function(err, result) {
+    //        
+    //        let MyStr = JSON.stringify(result)
+    //        let resultStr = ''
+    //        const $ = cheerio.load(MyStr);
+    //        $('DataAccess').each((i, el) => {
+    //            
+    //        
+    //            //check member in children element
+    //            const nChildren = $(el).children().length;
+    //            const children = $(el).children();
+    //            if(nChildren == 3) {
+    //                if(resultStr.trim() == '') {
+    //                    resultStr = $(children[1]).text()+ "\n--> " + $(children[2]).text()
+    //                } else {
+    //                    resultStr = resultStr + "\n" + $(children[1]).text()+ "\n--> " + $(children[2]).text()
+    //                }
+    //                resultStr = resultStr + "\n**********"
+    //        
+    //                console.log($(children[1]).text()+ " - " + $(children[2]).text())
+    //                console.log('*********')
+    //            }
+    //        })
+    //    });
+    //    return resultStr
+    //});
     
 }
 
