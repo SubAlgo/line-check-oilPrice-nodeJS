@@ -44,7 +44,14 @@ function handleMessageEvent(event) {
 let handleText = (text) => {
     let textResult;
     if(text.toLowerCase() == 'oil') {
-        textResult = ()=>{},check_oil_price();
+        //function callBack(){ console.log("OK"); }
+
+        function testCallBack(testNum,_callBack){
+            if(testNum>0){ _callBack(); }
+        }
+
+        testCallBack(1,callBack);
+        textResult = testCallBack(1,check_oil_price);
     } else if (text.toLowerCase() == 'macbook') {
         textResult = 'อยากได้อยู่ T_T'
     } else {
