@@ -123,7 +123,7 @@ let check_oil_price = () => {
     let strReturn = '';
 
     soap.createClient(url, (err, cli) => {        
-        cli.GetOilPrice(arg, (err, result) => {
+        cli.GetOilPrice(args, (err, result) => {
             
             // Error case
             if(err != null) {
