@@ -44,7 +44,7 @@ function handleMessageEvent(event) {
 let handleText = (text) => {
     let textResult;
     if(text.toLowerCase() == 'oil') {
-        textResult = check_oil_price()
+        textResult = ()=>{},check_oil_price();
     } else if (text.toLowerCase() == 'macbook') {
         textResult = 'อยากได้อยู่ T_T'
     } else {
@@ -77,11 +77,15 @@ let check_oil_price = () => {
     
     let strReturn = '';
 
-    soap.createClientAsync(url)
-    .then((client) => {
-        return client.GetOilPrice(args);
-    }).then((result) => {
-        return 'test1'
+    //return 'message';
+
+    //ทำไม ในนี้มันไม่ทำงานอ่ะ
+    soap.createClient(url, (err, cli) => {     
+       if(err == null) {
+           return 'null'
+       } else {
+           return 'true'
+       }
     })
     
 }
