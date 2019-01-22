@@ -34,10 +34,11 @@ let args = {
     'MM' : 12,
     'YYYY' : 2018
 }
+const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
 
 
-let hello = (req, res)=> {
-res.setHeader('Content-Type', 'text/plain');
+let hello = ()=> {
+//res.setHeader('Content-Type', 'text/plain');
 //res.setHeader('Content-Type', 'text/html');
 soap.createClient(url, function(err, client) {
 
@@ -136,13 +137,13 @@ app.listen(app.get('port'), function () {
 let checkoilPrice = () => {
 
     //function in function
-    let args = {    
-        'Language' : 'EN',
-        'DD' : 30,
-        'MM' : 12,
-        'YYYY' : 2018
-    }
-    const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
+    //let args = {    
+    //    'Language' : 'EN',
+    //    'DD' : 30,
+    //    'MM' : 12,
+    //    'YYYY' : 2018
+    //}
+    //const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     
     //soap.createClient(url, function(err, clients) {
         //console.log(clients)
