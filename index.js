@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const line = require('@line/bot-sdk');
-const soap = require('soap');
+
 const cheerio = require('cheerio');
 
 require('dotenv').config();
@@ -66,6 +66,7 @@ app.listen(app.get('port'), function () {
  */
 
 let check_oil_price = () => {
+    const soap = require('soap');
     const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     let args = {    
         'Language' : 'EN',
