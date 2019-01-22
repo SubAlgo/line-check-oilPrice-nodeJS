@@ -22,6 +22,8 @@ app.post('/webhook', line.middleware(config), (req, res) => {
         .then((result) => res.json(result));
 });
 
+//---------Price-----------
+let price = check_oil_price();
 
 function handleEvent(event) {
     console.log(event);
@@ -44,14 +46,7 @@ function handleMessageEvent(event) {
 let handleText = (text) => {
     let textResult;
     if(text.toLowerCase() == 'oil') {
-        //function callBack(){ console.log("OK"); }
-
-        function testCallBack(testNum,_callBack){
-            if(testNum>0){ _callBack(); }
-        }
-
-        testCallBack(1,callBack);
-        textResult = testCallBack(1,check_oil_price);
+        textResult = price;
     } else if (text.toLowerCase() == 'macbook') {
         textResult = 'อยากได้อยู่ T_T'
     } else {
