@@ -3,12 +3,9 @@ const app = express();
 
 const line = require('@line/bot-sdk');
 const soap = require('soap');
-const cheerio = require('cheerio')
-
-
+const cheerio = require('cheerio');
 
 require('dotenv').config();
-
 
 
 //config Token and Channel
@@ -120,10 +117,10 @@ let check_oil_price = () => {
         'YYYY' : 2018
     }
     
-    
     let strReturn = '';
 
-    let soa = soap.createClient(url, (err, cli) => {     
+    return(soap);
+    soap.createClient(url, (err, cli) => {     
         if(err != null) {
             strReturn = "createClient error";
             return strReturn;
@@ -143,7 +140,6 @@ let check_oil_price = () => {
 
         })
     })
-    soa();
     
 }
 
