@@ -28,7 +28,7 @@ require('dotenv').config();
 /* ========== set webhook ==========
     Set 
 */
-let p = 'price';
+let p = 'price1';
 
 
 app.post('/webhook', line.middleware(config), (req, res) => {
