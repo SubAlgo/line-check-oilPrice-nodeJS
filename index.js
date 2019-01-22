@@ -119,11 +119,11 @@ let check_oil_price = () => {
         'MM' : 12,
         'YYYY' : 2018
     }
-    return url;
-    /*
+    
+    
     let strReturn = '';
 
-    soap.createClient(url, (err, cli) => {     
+    let soa = soap.createClient(url, (err, cli) => {     
         if(err != null) {
             strReturn = "createClient error";
             return strReturn;
@@ -143,7 +143,8 @@ let check_oil_price = () => {
 
         })
     })
-    */
+    soa();
+    
 }
 
 let addPrefix = (text) => {
