@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const soap = require('soap');
 const line = require('@line/bot-sdk');
 
 const cheerio = require('cheerio');
@@ -66,7 +66,7 @@ app.listen(app.get('port'), function () {
  */
 
 let check_oil_price = () => {
-    const soap = require('soap');
+    
     const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     let args = {    
         'Language' : 'EN',
@@ -77,14 +77,14 @@ let check_oil_price = () => {
     
     let strReturn = '';
 
-    
-    soap.createClient(url, (err, cli) => {     
-       if(err == null) {
-           return 'null'
-       } else {
-           return 'true'
-       }
-    })
+    return 'test';
+    //soap.createClient(url, (err, cli) => {     
+    //   if(err == null) {
+    //       return 'null'
+    //   } else {
+    //       return 'true'
+    //   }
+    //})
     
 }
 
