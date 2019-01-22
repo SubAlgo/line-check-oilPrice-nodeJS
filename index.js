@@ -5,7 +5,6 @@ const cheerio = require('cheerio')
 
 
 
-
 require('dotenv').config();
 
 const app = express();
@@ -54,7 +53,9 @@ let checkoilPrice = () => {
     const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     
     //soap.createClient(url, function(err, client) {
-        let resultStr = 'test'
+        //console.log(client)
+        
+        let resultStr = 'Blue Gasoline 95 \n--> 33.16 \n**********\n Blue Diesel \n--> 24.79\n **********\n'
         
         //client.GetOilPrice(args, function(err, result) {
         //    
