@@ -77,7 +77,7 @@ let checkoilPrice = () => {
     }
     const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     
-    soap.createClient(url, function(err, clients) {
+    //soap.createClient(url, function(err, clients) {
         //console.log(clients)
         
         let resultStr = 'Blue Gasoline 95 \n--> 33.16 \n**********\n Blue Diesel \n--> 24.79\n **********\n'
@@ -106,7 +106,7 @@ let checkoilPrice = () => {
         //    })
         //});
         return resultStr
-    });
+    //});
     
 }
 
