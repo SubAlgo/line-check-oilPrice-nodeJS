@@ -1,4 +1,6 @@
 const express = require('express');
+const app = express();
+
 const line = require('@line/bot-sdk');
 const soap = require('soap');
 const cheerio = require('cheerio')
@@ -7,7 +9,7 @@ const cheerio = require('cheerio')
 
 require('dotenv').config();
 
-const app = express();
+
 
 //config Token and Channel
 const config = {
@@ -42,6 +44,29 @@ function handleMessageEvent(event) {
     return client.replyMessage(event.replyToken, msg);
 }
 
+let handleText = (text) => {
+    let textResult;
+    if(text.toLowerCase() == 'oil') {
+        textResult = checkoilPrice()
+    } else if (text.toLowerCase() == 'macbook') {
+        textResult = 'อยากได้อยู่ T_T'
+    } else {
+        textResult = addPrefix(text)
+    }
+
+    return textResult;
+}
+
+app.set('port', (process.env.PORT || 5000));
+
+app.listen(app.get('port'), function () {
+    console.log('run at port', app.get('port'));
+});
+
+
+/**------ Function Handle value ------
+ * 
+ */
 let checkoilPrice = () => {
 
     let args = {    
@@ -90,21 +115,3 @@ let addPrefix = (text) => {
     return re;
 }
 
-let handleText = (text) => {
-    let ms;
-    if(text.toLowerCase() == 'oil') {
-        ms = checkoilPrice()
-    } else if (text == 'macbook') {
-        ms = 'อยากได้อยู่ T_T'
-    } else {
-        ms = addPrefix(text)
-    }
-
-    return ms;
-}
-
-app.set('port', (process.env.PORT || 5000));
-
-app.listen(app.get('port'), function () {
-    console.log('run at port', app.get('port'));
-});
