@@ -1,29 +1,43 @@
+/* ========== Config server module ==========
+    require express
+*/
 const express = require('express');
 const app = express();
-const soap = require('soap');
+
+
+/* ========== Config line module ==========
+    require line sdk and declare new object
+*/
 const line = require('@line/bot-sdk');
-
-const cheerio = require('cheerio');
-
-require('dotenv').config();
-
-
-//config Token and Channel
+// set Token and Channel
 const config = {
     channelAccessToken: 'gSUsaZB4IUt6h1TBQeZh8FPmR+/C3OVNcRNbC1JsVDj2OC6r7xUBqp6E9iG1HHtwWENJVsA80TJMt+/EPScTaosUOYFKCwCkxw1xb8BWdq4tYTb7MZHos+d1b/aBjDPeZLjKRb1O3jKMvFKekofjvgdB04t89/1O/w1cDnyilFU=',
     channelSecret: '154e9bed54c5d0d70335e563d2089062'
 };
-
 const client = new line.Client(config);
+
+
+/* ========== Config soap and XML manage module ==========
+    require soap
+*/
+const soap = require('soap');
+const cheerio = require('cheerio')
+require('dotenv').config();
+
+
+/* ========== set webhook ==========
+    Set 
+*/
+let p = 'price';
+
 
 app.post('/webhook', line.middleware(config), (req, res) => {
     Promise
         .all(req.body.events.map(handleEvent))
+        .then((result) => console.log(result))
         .then((result) => res.json(result));
 });
 
-//---------Price-----------
-//let price = check_oil_price();
 
 function handleEvent(event) {
     console.log(event);
@@ -46,7 +60,7 @@ function handleMessageEvent(event) {
 let handleText = (text) => {
     let textResult;
     if(text.toLowerCase() == 'oil') {
-        textResult = 'price';
+        textResult = p
     } else if (text.toLowerCase() == 'macbook') {
         textResult = 'อยากได้อยู่ T_T'
     } else {
@@ -66,29 +80,47 @@ app.listen(app.get('port'), function () {
 /**------ Function Handle value ------
  * 
  */
+let checkoilPrice = () => {
 
-let check_oil_price = () => {
-    
-    const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
+    //function in function
     let args = {    
         'Language' : 'EN',
         'DD' : 30,
         'MM' : 12,
         'YYYY' : 2018
     }
+    const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     
-    let strReturn = '';
-
-    //return 'message';
-
-    //ทำไม ในนี้มันไม่ทำงานอ่ะ
-    soap.createClient(url, (err, cli) => {     
-       if(err == null) {
-           return 'null'
-       } else {
-           return 'true'
-       }
-    })
+    //soap.createClient(url, function(err, clients) {
+        //console.log(clients)
+        
+        let resultStr = 'Blue Gasoline 95 \n--> 33.16 \n**********\n Blue Diesel \n--> 24.79\n **********\n'
+        
+        //clients.GetOilPrice(args, function(err, result) {
+        //    
+        //    let MyStr = JSON.stringify(result)
+        //    let resultStr = ''
+        //    const $ = cheerio.load(MyStr);
+        //    $('DataAccess').each((i, el) => {
+        //    
+        //        //check member in children element
+        //        const nChildren = $(el).children().length;
+        //        const children = $(el).children();
+        //        if(nChildren == 3) {
+        //            if(resultStr.trim() == '') {
+        //                resultStr = $(children[1]).text()+ "\n--> " + $(children[2]).text()
+        //            } else {
+        //                resultStr = resultStr + "\n" + $(children[1]).text()+ "\n--> " + $(children[2]).text()
+        //            }
+        //            resultStr = resultStr + "\n**********"
+        //    
+        //            console.log($(children[1]).text()+ " - " + $(children[2]).text())
+        //            console.log('*********')
+        //        }
+        //    })
+        //});
+        return resultStr
+    //});
     
 }
 
