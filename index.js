@@ -77,14 +77,12 @@ let check_oil_price = () => {
     
     let strReturn = '';
 
-    return 'test';
-    //soap.createClient(url, (err, cli) => {     
-    //   if(err == null) {
-    //       return 'null'
-    //   } else {
-    //       return 'true'
-    //   }
-    //})
+    soap.createClientAsync(url)
+    .then((client) => {
+        return client.GetOilPrice(args);
+    }).then((result) => {
+        return 'test1'
+    })
     
 }
 
