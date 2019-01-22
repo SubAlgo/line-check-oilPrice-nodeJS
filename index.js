@@ -23,7 +23,7 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 });
 
 //---------Price-----------
-let price = check_oil_price();
+//let price = check_oil_price();
 
 function handleEvent(event) {
     console.log(event);
@@ -46,7 +46,7 @@ function handleMessageEvent(event) {
 let handleText = (text) => {
     let textResult;
     if(text.toLowerCase() == 'oil') {
-        textResult = price;
+        textResult = 'price';
     } else if (text.toLowerCase() == 'macbook') {
         textResult = 'อยากได้อยู่ T_T'
     } else {
