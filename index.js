@@ -64,49 +64,6 @@ app.listen(app.get('port'), function () {
 /**------ Function Handle value ------
  * 
  */
-let checkoilPrice = () => {
-
-    //function in function
-    //et args = {    
-    //   'Language' : 'EN',
-    //   'DD' : 30,
-    //   'MM' : 12,
-    //   'YYYY' : 2018
-    //
-    const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
-    
-    //soap.createClient(url, function(err, clients) {
-        //console.log(clients)
-        
-        let resultStr = 'Blue Gasoline 95 \n--> 33.16 \n**********\n Blue Diesel \n--> 24.79\n **********\n'
-        
-        //clients.GetOilPrice(args, function(err, result) {
-        //    
-        //    let MyStr = JSON.stringify(result)
-        //    let resultStr = ''
-        //    const $ = cheerio.load(MyStr);
-        //    $('DataAccess').each((i, el) => {
-        //    
-        //        //check member in children element
-        //        const nChildren = $(el).children().length;
-        //        const children = $(el).children();
-        //        if(nChildren == 3) {
-        //            if(resultStr.trim() == '') {
-        //                resultStr = $(children[1]).text()+ "\n--> " + $(children[2]).text()
-        //            } else {
-        //                resultStr = resultStr + "\n" + $(children[1]).text()+ "\n--> " + $(children[2]).text()
-        //            }
-        //            resultStr = resultStr + "\n**********"
-        //    
-        //            console.log($(children[1]).text()+ " - " + $(children[2]).text())
-        //            console.log('*********')
-        //        }
-        //    })
-        //});
-        return resultStr
-    //});
-    
-}
 
 let check_oil_price = () => {
     const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
@@ -119,26 +76,13 @@ let check_oil_price = () => {
     
     let strReturn = '';
 
-    return(soap);
+    
     soap.createClient(url, (err, cli) => {     
-        if(err != null) {
-            strReturn = "createClient error";
-            return strReturn;
-        }   
-        cli.GetOilPrice(args, (err, result) => {
-            
-            // Error case
-            if(err != null) {
-                strReturn = "Can't connect API";
-                return strReturn;
-            }
-
-            let MyStr = JSON.stringify(result);
-            const $ = cheerio.load(MyStr);
-
-            return strReturn = "Price is ...";
-
-        })
+       if(err == null) {
+           return 'null'
+       } else {
+           return 'true'
+       }
     })
     
 }
