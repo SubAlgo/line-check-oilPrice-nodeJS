@@ -4,7 +4,7 @@ const soap = require('soap');
 const cheerio = require('cheerio')
 
 
-const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
+
 
 require('dotenv').config();
 
@@ -51,6 +51,7 @@ let checkoilPrice = () => {
         'MM' : 12,
         'YYYY' : 2018
     }
+    const url = 'http://www.pttplc.com/webservice/pttinfo.asmx?WSDL';
     
     soap.createClient(url, function(err, client) {
         let resultStr = 'test'
